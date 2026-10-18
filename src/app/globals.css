@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf6f2;
+  --color-ivory: #fffdfb;
+  --color-blush: #f6e7ea;
+  --color-blush-deep: #efd6db;
+  --color-rose: #c98a97;
+  --color-rose-deep: #a45f6e;
+  --color-plum: #402830;
+  --color-plum-deep: #2c1a21;
+  --color-ink: #33242b;
+  --color-gold: #bf9d5f;
+  --color-gold-deep: #a98644;
+  --color-gold-light: #ecdcba;
+
+  --font-display: var(--font-playfair), "Georgia", serif;
+  --font-body: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ------------------------------ global defaults ------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-cream text-ink font-body antialiased;
+  margin: 0;
+  min-width: 320px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  overflow-wrap: anywhere;
+}
+
+p,
+li,
+blockquote {
+  overflow-wrap: break-word;
+}
+
+[id] {
+  scroll-margin-top: 6.5rem;
+}
+
+/* Prevent long labels, URLs and headings from escaping their containers. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Allow flex and grid children to shrink below their content's natural width. */
+:where(
+  main,
+  section,
+  article,
+  aside,
+  header,
+  footer,
+  nav
+) {
+  min-width: 0;
+}
+
+::selection {
+  background: rgba(201, 138, 151, 0.35);
+  color: #2c1a21;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f6e7ea;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#c98a97, #bf9d5f);
+  border-radius: 8px;
+}
+
+/* ------------------------------ components ------------------------------ */
+
+@layer components {
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.38em] text-gold;
+  }
+
+  .btn-gold {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-plum-deep transition-all duration-300;
+    background: linear-gradient(120deg, #ecdcba 0%, #d9bd85 45%, #bf9d5f 100%);
+    box-shadow: 0 10px 30px -10px rgba(169, 134, 68, 0.65);
+  }
+
+  .btn-gold:hover {
+    box-shadow: 0 16px 40px -12px rgba(169, 134, 68, 0.8);
+    transform: translateY(-2px);
+  }
+
+  .btn-gold::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 80%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+  }
+
+  .btn-gold:hover::after {
+    transform: translateX(120%);
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold-light hover:bg-white/10 hover:text-gold-light;
+  }
+
+  .btn-outline-rose {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-rose/50 px-7 py-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-rose-deep transition-all duration-300 hover:border-gold hover:bg-blush hover:text-plum;
+  }
+
+  .card-luxe {
+    @apply rounded-[1.4rem] border border-gold/15 bg-ivory shadow-[0_20px_50px_-25px_rgba(64,40,48,0.35)];
+  }
+
+  .input-luxe {
+    @apply w-full rounded-xl border border-rose/25 bg-white/80 px-4 py-3 text-[15px] text-ink placeholder:text-ink/35 outline-none transition-all duration-200 focus:border-gold focus:ring-4 focus:ring-gold/15;
+  }
+
+  .label-luxe {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.22em] text-rose-deep;
+  }
+
+  .text-gold-grad {
+    background: linear-gradient(105deg, #ecdcba 0%, #cda96b 40%, #a98644 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gold-frame {
+    position: relative;
+  }
+
+  .gold-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(14px, 14px);
+    border: 1px solid rgba(191, 157, 95, 0.55);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+/* ------------------------------ mobile safeguards ------------------------------ */
+
+@media (max-width: 640px) {
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.24em;
+    overflow-wrap: anywhere;
+  }
+
+  .btn-gold,
+  .btn-outline-light,
+  .btn-outline-rose {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .gold-frame::before {
+    transform: translate(7px, 7px);
+  }
+}
+
+/* ------------------------------ animations ------------------------------ */
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1) translateY(0);
+  }
+
+  to {
+    transform: scale(1.12) translateY(-12px);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 22s ease-in-out infinite alternate;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 2.2s ease-in-out infinite;
+}
