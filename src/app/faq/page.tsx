@@ -1,5 +1,5 @@
+
 import type { Metadata } from "next";
-import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { FAQS, IMG } from "@/lib/content";
 import { SITE } from "@/lib/site";
@@ -9,7 +9,7 @@ import { FAQAccordion } from "@/components/interactive";
 export const metadata: Metadata = {
   title: "FAQ & Aftercare",
   description:
-    "Answers on lash extensions, microblading, facials, booking and cancellation policies, plus full aftercare instructions for lashes, brows and waxing.",
+    "Answers about lash extensions, booking and cancellation policies, and aftercare instructions to help you maintain your results.",
   alternates: { canonical: "/faq" },
 };
 
@@ -32,14 +32,16 @@ export default function FAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+
       <PageHero
         eyebrow="Questions · Policies · Aftercare"
         title={
           <>
-            Everything a queen <span className="text-gold-grad italic">should know</span>
+            Everything a queen{" "}
+            <span className="text-gold-grad italic">should know</span>
           </>
         }
-        sub="Straight answers on our services, honest policies on bookings, and the aftercare rituals that keep your results flawless."
+        sub="Straight answers on lash services, booking policies, and the aftercare rituals that help keep your results flawless."
         image={IMG.lashClient}
       />
 
@@ -50,9 +52,10 @@ export default function FAQPage() {
           <p className="font-display text-2xl text-plum md:text-3xl">
             Still wondering something?
           </p>
+
           <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink/60">
             Message us any time — a real human (usually Liviah herself) replies
-            on WhatsApp {" "}
+            on WhatsApp{" "}
             <a
               href={`https://wa.me/${SITE.whatsapp}`}
               target="_blank"
@@ -60,9 +63,10 @@ export default function FAQPage() {
               className="font-semibold text-rose-deep underline decoration-gold/50 underline-offset-4"
             >
               {SITE.phoneMobile}
-            </a>
-            {" "}or {SITE.phoneLine}.
+            </a>{" "}
+            or {SITE.phoneLine}.
           </p>
+
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
               href={`https://wa.me/${SITE.whatsapp}`}
@@ -72,9 +76,6 @@ export default function FAQPage() {
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </a>
-            <Link href="/contact" className="btn-outline-rose !px-7 !py-3 !text-[11px]">
-              Contact Page
-            </Link>
           </div>
         </div>
       </section>
@@ -82,7 +83,8 @@ export default function FAQPage() {
       <RoyalCta
         title={
           <>
-            Answers received — <span className="text-gold-grad italic">now relax</span>
+            Answers received —{" "}
+            <span className="text-gold-grad italic">now relax</span>
           </>
         }
         sub="Book your appointment online in under two minutes with live availability."

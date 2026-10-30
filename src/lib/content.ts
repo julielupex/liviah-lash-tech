@@ -341,44 +341,7 @@ export const FAQS: { category: string; items: { q: string; a: string }[] }[] = [
       },
     ],
   },
-  {
-    category: "Brow Services",
-    items: [
-      {
-        q: "What is the difference between microblading and microshading?",
-        a: "Microblading creates hair-like strokes for a natural look, ideal for normal to dry skin. Microshading is a soft, powdered ombré effect, better for oily or sensitive skin. Combo brows blend both techniques for the best of each.",
-      },
-      {
-        q: "How long do semi-permanent brows last?",
-        a: "Results typically last 12–24 months depending on skin type and lifestyle. A perfecting touch-up 6–8 weeks after your first session is recommended and can be booked as a follow-up.",
-      },
-      {
-        q: "Does microblading hurt?",
-        a: "We apply a topical numbing cream before and during the procedure, so most clients feel only light pressure. Comfort is a royal priority.",
-      },
-      {
-        q: "How should I prepare for brow lamination?",
-        a: "Arrive with clean, product-free brows and avoid tweezing or waxing for at least 48 hours before your appointment. Results last 4–6 weeks with proper aftercare.",
-      },
-    ],
-  },
-  {
-    category: "Facials",
-    items: [
-      {
-        q: "Are your facials suitable for sensitive skin?",
-        a: "Yes. Our facials use certified organic, fragrance-conscious products, and every treatment begins with a skin analysis so we can tailor each step to your skin's needs.",
-      },
-      {
-        q: "How often should I get a facial?",
-        a: "For lasting glow we recommend a professional facial every 4–6 weeks, which aligns with your skin's natural renewal cycle. Members enjoy a monthly facial as part of their plan.",
-      },
-      {
-        q: "What should I avoid after a facial?",
-        a: "Skip heavy makeup, direct sun, saunas and active exfoliants (retinol, AHAs) for 24–48 hours, and keep skin hydrated with a gentle moisturiser and SPF.",
-      },
-    ],
-  },
+  
   {
     category: "Booking & Cancellation Policy",
     items: [

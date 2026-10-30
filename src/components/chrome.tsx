@@ -124,9 +124,7 @@ const LEFT_LINKS = [
 ];
 
 const RIGHT_LINKS = [
-  { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
 ];
 
 const ALL_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
